@@ -1,0 +1,35 @@
+{
+  "name": "agrostar-assignment",
+  "version": "1.0.0",
+  "description": "Agrostar-assignment to show product listing page.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --hot --progress --colors --inline"
+  },
+  "repository": "git+https://gitlab.com/client-apps/agrostar-assignment.git",
+  "author": "Harpreet Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/client-apps/agrostar-assignment/issues"
+  },
+  "homepage": "https://gitlab.com/client-apps/agrostar-assignment#README",
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  }
+}
