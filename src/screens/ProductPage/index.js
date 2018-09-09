@@ -7,7 +7,7 @@ import { actions } from '../../state/products';
 import ProductCard from '../../components/ProductCard';
 import ViewBagCart from '../../components/ViewBagCart';
 
-import {ProductWrapper} from './styles';
+import {ProductWrapper, NoResultFound} from './styles';
 class ProductPage extends Component {
 
     constructor(props) {
@@ -30,14 +30,18 @@ class ProductPage extends Component {
     render () {
         const {productList, productCart, searchText} = this.props;
         
-        if(productList) {
+        if(productList && productList.length) {
             let filteredProducts = [];
             if(searchText && searchText.length > 2) {
                 filteredProducts = productList.filter(({productName}) => (productName.toLowerCase().indexOf(searchText) > -1));
             } else {
                 filteredProducts = productList;
             }
-            
+            if(!(filteredProducts && filteredProducts.length)) {
+                return (
+                    <NoResultFound>No Result Found</NoResultFound>
+                ); 
+            }
             return (   
                 <React.Fragment>
                     <ProductWrapper>

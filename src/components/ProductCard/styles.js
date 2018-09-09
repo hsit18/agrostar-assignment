@@ -6,10 +6,12 @@ export const ProductCardWrapper = styled.div`
     width: 137px;
     height: 208px;
     padding:10px;
+    margin-bottom:10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     
     .title {
         color: #9C9C9C;
@@ -66,7 +68,16 @@ export const ProductButtonCart = styled.div`
 
 `;
 
+export const OfferWrapper = styled.div`
+    height: 14px;
+    color: #4A3114;
+    position: absolute;
+    top: 7px;
+    font-size: 11px;
+    font-weight: bold;
+    left: 0;
+    padding: 3px;
+    border-radius: 0 2px 2px 0;
+    background: #F8A453;
 
-
-
-
+`;
