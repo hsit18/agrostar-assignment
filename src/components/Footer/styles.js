@@ -3,10 +3,12 @@ import styled from 'styled-components';
 export const FooterWrapper = styled.footer`
     height: 60px;
     background: #fff;
-    bottom: 12px;
-    position: fixed;
-    margin: 0 3px 0 3px;
-    width: 348px;
+    
+    left: 50%;
+    position: absolute;
+    width: calc(100% - 4px);
+    transform: translate(-50%);
+    bottom: 1px;
 
     ul {
         display: flex;

@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 
-import {LayoutWrapper, Container} from './styles';
-
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SearchBox from '../../components/SearchBox';
 
 import ProductPage from '../ProductPage';
 
+import {LayoutWrapper, Main} from './styles';
+
 class Layout extends Component {
     render () {
         return (
             <LayoutWrapper>
                 <Header />
-                <Container>
-                    <SearchBox />
+                <SearchBox />
+                <Main>
                     <ProductPage />
-                </Container>
+                </Main>
                 <Footer />
             </LayoutWrapper>
         )
