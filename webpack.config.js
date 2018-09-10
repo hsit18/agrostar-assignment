@@ -6,6 +6,7 @@ const PORT = 8001;
 const productionEnv = process.env.NODE_ENV === 'production';
 
 module.exports = {
+    mode: 'development',
     devtool: productionEnv ? 'source-map' : 'cheap-module-source-map',
     entry: {
         index: './src/index.js',
