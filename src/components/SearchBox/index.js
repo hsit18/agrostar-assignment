@@ -17,7 +17,10 @@ class SearchBox extends Component {
     }
     
     onChange_SetValue({target: { value }}) {
-        this.setState({value});
+        this.setState({value}, () => {
+            this.props.setProductSearchText(this.state.value);
+        });
+        
     }
     onClick_SearchText() {
         this.props.setProductSearchText(this.state.value);
