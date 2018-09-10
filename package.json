@@ -4,7 +4,8 @@
   "description": "Agrostar-assignment to show product listing page.",
   "main": "index.js",
   "scripts": {
-    "dev": "node_modules/.bin/webpack-dev-server --hot --progress --colors --inline"
+    "dev": "node_modules/.bin/webpack-dev-server --hot --progress --colors --inline",
+    "build": "node_modules/.bin/webpack -p"
   },
   "repository": "git+https://gitlab.com/client-apps/agrostar-assignment.git",
   "author": "Harpreet Singh",
