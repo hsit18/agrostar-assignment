@@ -5,7 +5,7 @@ export const ProductWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     overflow-y: scroll;
-    height: 340px;
+    height: 378px;
 `;
 
 export const NoResultFound = styled.div`

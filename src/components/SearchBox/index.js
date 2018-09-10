@@ -9,24 +9,32 @@ import {SearchBoxWrapper} from './styles';
 class SearchBox extends Component {
     constructor(props) {
         super(props);
-        this.onChange_SearchText = this.onChange_SearchText.bind(this);
+        this.state = {
+            value: ''
+        };
+        this.onClick_SearchText = this.onClick_SearchText.bind(this);
+        this.onChange_SetValue = this.onChange_SetValue.bind(this);
     }
     
-    onChange_SearchText({target: { value } }) {
-        this.props.setProductSearchText(value);
+    onChange_SetValue({target: { value }}) {
+        this.setState({value});
+    }
+    onClick_SearchText() {
+        this.props.setProductSearchText(this.state.value);
     }
 
     render () {
-        const {searchText} = this.props;
+        const {value} = this.state;
         return (
             <SearchBoxWrapper>
-                <input type="text" defaultValue={searchText} onChange={this.onChange_SearchText} placeholder="Search by product name" />
+                <input type="text" defaultValue={value} onChange={this.onChange_SetValue} placeholder="Search by product name" />
+                <i onClick={this.onClick_SearchText} className="fas fa-search"></i>
             </SearchBoxWrapper>
         )
     }
 }
 
 export default connect(
-    state => ({ searchText: state.products.searchText}),
+    state => ({}),
     dispatch => bindActionCreators(actions, dispatch),
 )(SearchBox);

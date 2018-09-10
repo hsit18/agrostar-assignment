@@ -1,18 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react';
 
 import {FooterWrapper} from './styles';
 
-class Footer extends Component {
-    render () {
-        return (
-            <FooterWrapper>
-                <ul>
-                    <li className="active">Products</li>
-                    <li>My Orders</li>
-                </ul>
-            </FooterWrapper>
-        )
-    }
-}
+const Footer = () => (
+    <FooterWrapper>
+        <ul>
+            <li className="active">
+                <i className="fas fa-shopping-bag" />
+                <span>Products</span>
+            </li>
+            <li>
+                <i className="fas fa-shopping-bag" />
+                <span>My Orders</span>
+            </li>
+        </ul>
+    </FooterWrapper>
+);
 
 export default Footer;

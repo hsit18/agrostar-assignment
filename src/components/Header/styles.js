@@ -8,8 +8,11 @@ export const HeaderWrapper = styled.header`
     top: 33px;
     padding: 3px;
     width: calc(100% - 10px);
+    display: flex;
+    justify-content: space-between;
     h1 {
         font-size: 1.2em;
+        font-style: italic;
         font-weight: normal;
         color: #A8383C;
         padding: 0;
@@ -18,7 +21,16 @@ export const HeaderWrapper = styled.header`
             color: #479449;
             display: block;
             padding-left: 40px;
-            font-style: italic;
+            font-size: 13px;
+            font-weight: bold;
         }
+    }
+
+    .header-icon {
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 8px;
     }
 `;

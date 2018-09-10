@@ -13,16 +13,23 @@ export const FooterWrapper = styled.footer`
     ul {
         display: flex;
         justify-content: space-between;
-        padding: 26px 30px 0 30px;
+        padding: 18px 30px 0 30px;
         margin: 0;
         width: 77%;
  
         li {
             list-style: none;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             &.active {
                 color: #619C5D;
+            }
+
+            span {
+                padding-top: 4px;
             }
         }
     }

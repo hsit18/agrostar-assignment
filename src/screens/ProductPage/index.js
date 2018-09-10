@@ -15,6 +15,7 @@ class ProductPage extends Component {
         this.onClick_addProduct = this.onClick_addProduct.bind(this);
         this.onClick_removeProduct = this.onClick_removeProduct.bind(this);        
     }
+
     componentDidMount() {
         this.props.fetchProducts();
     }
@@ -55,11 +56,10 @@ class ProductPage extends Component {
                             />
                         ))}
                     </ProductWrapper>
-                    {productCart && Object.keys(productCart).length &&
+                    {productCart && Object.keys(productCart).length > 0 &&
                         <ViewBagCart products={productList} productCart={productCart}/>
                     }
-                </React.Fragment>         
-                
+                </React.Fragment>
             )
         }
         return null;
