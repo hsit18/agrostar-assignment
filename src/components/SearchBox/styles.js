@@ -13,6 +13,8 @@ export const SearchBoxWrapper = styled.div`
         border: none;
         font-style: italic;
         font-size: 1em;
+        padding-left: 8px;
+        outline: none;
     }
 
     i {
