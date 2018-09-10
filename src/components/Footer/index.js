@@ -7,7 +7,7 @@ class Footer extends Component {
         return (
             <FooterWrapper>
                 <ul>
-                    <li>Products</li>
+                    <li className="active">Products</li>
                     <li>My Orders</li>
                 </ul>
             </FooterWrapper>

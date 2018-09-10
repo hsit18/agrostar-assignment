@@ -18,8 +18,10 @@ export const ProductCardWrapper = styled.div`
         font-size: 13px;
         font-weight: normal;
         margin: 0;
-        height: 40px;
-        width: 100%;
+        width: 133px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre;
     }
     .price {
         padding-top: 3px;
