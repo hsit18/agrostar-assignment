@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --hot --progress --colors --inline",
-    "build": "node_modules/.bin/webpack -p"
+    "build": "node_modules/.bin/webpack -p",
+    "test": "jest"
   },
   "repository": "git+https://gitlab.com/client-apps/agrostar-assignment.git",
   "author": "Harpreet Singh",
@@ -14,6 +15,15 @@
     "url": "https://gitlab.com/client-apps/agrostar-assignment/issues"
   },
   "homepage": "https://gitlab.com/client-apps/agrostar-assignment#README",
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/test/helpers.js",
+    "testMatch": [
+      "<rootDir>/src/**/**/*.spec.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/test/"
+    ]
+  },
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -22,16 +32,21 @@
     "styled-components": "^3.4.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.2",
-    "babel-polyfill": "^6.26.0",
+    "core-js": "^2.5.7",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "jsdom": "^12.0.0",
     "react-redux": "^5.0.7",
+    "react-test-renderer": "^16.5.1",
     "redux-logger": "^3.0.6",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
