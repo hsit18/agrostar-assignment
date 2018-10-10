@@ -1,6 +1,8 @@
 import reducer from './reducers';
 import * as types from './types';
 
+import productsData from '../../../test/data/products.json';
+
 describe('Products reducers', () => {
     
     it('should return the initial state', () => {
@@ -10,6 +12,19 @@ describe('Products reducers', () => {
             searchText: ''
         };
         expect(reducer(undefined, {})).toEqual(initialState);
+    });
+
+    it('should return the list of products', () => {
+        const expectedState = {
+            productList: productsData.responseData.productList,
+            productCart: {},
+            searchText: ''
+        };
+        expect(reducer(undefined, {
+            type: types.PRODUCTS_SUCCESS,
+            products: productsData
+          }
+        )).toEqual(expectedState);
     });
 
     it('should return the state with add product to cart', () => {
