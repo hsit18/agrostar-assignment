@@ -20,7 +20,7 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/test/helpers.js",
     "testMatch": [
-      "<rootDir>/src/**/**/saga.spec.js"
+      "<rootDir>/src/**/**/*.spec.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/test/"
