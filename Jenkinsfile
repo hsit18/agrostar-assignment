@@ -1,13 +1,32 @@
 node {
   try {
-      properties([parameters([string(defaultValue: '', description: '', name: 'custom_var', trim: false)])])
+          parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
-    // parameters {
-    //     string(name: 'custom_var', defaultValue: '')
-    // }
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-    stage("foo") {
-        echo "flag: ${env.custom_var}"
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+
+        file(name: "FILE", description: "Choose a file to upload")
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "Hello ${params.PERSON}"
+
+                echo "Biography: ${params.BIOGRAPHY}"
+
+                echo "Toggle: ${params.TOGGLE}"
+
+                echo "Choice: ${params.CHOICE}"
+
+                echo "Password: ${params.PASSWORD}"
+            }
+        }
     }
     // stage('Checkout') {
     //   checkout scm
