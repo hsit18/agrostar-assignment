@@ -1,6 +1,6 @@
 node {
   try {
-      parameters {
+    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
     }
 
