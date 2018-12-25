@@ -1,8 +1,10 @@
 node {
   try {
-    parameters {
-        string(name: 'custom_var', defaultValue: '')
-    }
+      properties([parameters([string(defaultValue: '', description: '', name: 'custom_var', trim: false)])])
+
+    // parameters {
+    //     string(name: 'custom_var', defaultValue: '')
+    // }
 
     stage("foo") {
         echo "flag: ${env.custom_var}"
