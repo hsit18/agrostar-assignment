@@ -1,11 +1,11 @@
 node {
   try {
     parameters {
-        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+        string(name: 'custom_var', defaultValue: '')
     }
 
     stage("foo") {
-        echo "flag: ${params.userFlag}"
+        echo "flag: ${params.custom_var}"
     }
     // stage('Checkout') {
     //   checkout scm
