@@ -5,7 +5,7 @@ node {
     }
 
     stage("foo") {
-        echo "flag: ${params.custom_var}"
+        echo "flag: ${env.custom_var}"
     }
     // stage('Checkout') {
     //   checkout scm
