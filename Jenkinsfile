@@ -1,19 +1,31 @@
 node {
   try {
-    stage('Checkout') {
-      checkout scm
+      parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
     }
-    stage('Environment') {
-      sh 'git --version'
-      echo "Branch: ${env.BRANCH_NAME}"
-      sh 'printenv'
+
+    stages {
+        stage("foo") {
+            steps {
+                echo "flag: ${params.userFlag}"
+            }
+        }
     }
-    stage('install'){
-      sh 'yarn install'
-    }
-    stage('build'){
-      sh 'yarn build'
-    }
+    // stage('Checkout') {
+    //   checkout scm
+    // }
+    // stage('Environment') {
+    //   env.NODE_ENV = "prod"
+    //   sh 'git --version'
+    //   echo "Branch: ${env.BRANCH_NAME}"
+    //   //sh 'printenv'
+    // }
+    // stage('install'){
+    //   sh 'yarn install'
+    // }
+    // stage('build'){
+    //   sh 'yarn build'
+    // }
   }
   catch (err) {
     throw err
