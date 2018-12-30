@@ -3,7 +3,7 @@ node {
     properties(
         [parameters([
             string(defaultValue: '', description: '', name: 'custom_var', trim: false),
-            string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'branch name'),
+            string(name: 'BRANCH', defaultValue: 'master', description: 'branch name'),
             choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
         ])]
     )
