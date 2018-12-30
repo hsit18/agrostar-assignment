@@ -4,31 +4,28 @@ node {
         string(name: 'BRANCH', defaultValue: 'master', description: 'branch name')
         choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
     }
-    stages {
-        stage('Example') {
-            steps {
-                echo "Branch ${params.BRANCH}"
+    stage('Example') {
+        steps {
+            echo "Branch ${params.BRANCH}"
 
-                echo "Enviroment: ${params.ENVIROMENT}"
-            }
-        }
-        stage('Checkout') {
-           checkout scm
-        }
-        stage('Environment') {
-            env.NODE_ENV = "prod"
-            sh 'git --version'
-            echo "Branch: ${env.BRANCH_NAME}"
-            //sh 'printenv'
-        }
-        stage('install'){
-            sh 'yarn install'
-        }
-        stage('build'){
-            sh 'yarn build'
+            echo "Enviroment: ${params.ENVIROMENT}"
         }
     }
-    
+    stage('Checkout') {
+        checkout scm
+    }
+    stage('Environment') {
+        env.NODE_ENV = "prod"
+        sh 'git --version'
+        echo "Branch: ${env.BRANCH_NAME}"
+        //sh 'printenv'
+    }
+    stage('install'){
+        sh 'yarn install'
+    }
+    stage('build'){
+        sh 'yarn build'
+    }    
   }
   catch (err) {
     throw err
