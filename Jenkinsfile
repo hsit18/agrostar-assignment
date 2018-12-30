@@ -24,14 +24,15 @@ node {
 
         //checkout scm
     }
-    stage('Environment') {
-        env.NODE_ENV = params.ENVIROMENT;
-        sh 'git --version'
-        echo "NODE_ENV: ${env.NODE_ENV}"
-        //sh 'printenv'
-    }
     stage('install'){
         sh 'yarn install'
+    }
+    stage('test'){
+        sh 'yarn test'
+    }
+    stage('Environment') {
+        env.NODE_ENV = params.ENVIROMENT;
+        echo "NODE_ENV: ${env.NODE_ENV}"
     }
     stage('build'){
         sh 'yarn build'
