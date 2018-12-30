@@ -4,9 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PORT = 8001;
 const productionEnv = process.env.NODE_ENV === 'production';
-
+console.log(process.env.NODE_ENV);
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     devtool: productionEnv ? 'source-map' : 'cheap-module-source-map',
     entry: {
         index: './src/index.js',
