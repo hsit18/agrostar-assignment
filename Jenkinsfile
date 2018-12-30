@@ -1,9 +1,16 @@
 node {
   try {
-    parameters {
-        string(name: 'BRANCH', defaultValue: 'master', description: 'branch name')
-        choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
-    }
+    properties(
+        [parameters([
+            string(defaultValue: '', description: '', name: 'custom_var', trim: false)
+            string(name: 'BRANCH', defaultValue: 'master', description: 'branch name')
+            choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
+        ])]
+    )
+    // parameters {
+    //     string(name: 'BRANCH', defaultValue: 'master', description: 'branch name')
+    //     choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
+    // }
     stage('Example') {
         
         echo "Branch ${params.BRANCH}"
