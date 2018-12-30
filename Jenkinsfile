@@ -5,11 +5,11 @@ node {
         choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
     }
     stage('Example') {
-        steps {
-            echo "Branch ${params.BRANCH}"
+        
+        echo "Branch ${params.BRANCH}"
 
-            echo "Enviroment: ${params.ENVIROMENT}"
-        }
+        echo "Enviroment: ${params.ENVIROMENT}"
+        
     }
     stage('Checkout') {
         checkout scm
