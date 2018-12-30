@@ -1,48 +1,34 @@
 node {
   try {
-          parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-
-        file(name: "FILE", description: "Choose a file to upload")
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'master', description: 'branch name')
+        choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
     }
     stages {
         stage('Example') {
             steps {
-                echo "Hello ${params.PERSON}"
+                echo "Branch ${params.BRANCH}"
 
-                echo "Biography: ${params.BIOGRAPHY}"
-
-                echo "Toggle: ${params.TOGGLE}"
-
-                echo "Choice: ${params.CHOICE}"
-
-                echo "Password: ${params.PASSWORD}"
+                echo "Enviroment: ${params.ENVIROMENT}"
             }
         }
+        stage('Checkout') {
+           checkout scm
+        }
+        stage('Environment') {
+            env.NODE_ENV = "prod"
+            sh 'git --version'
+            echo "Branch: ${env.BRANCH_NAME}"
+            //sh 'printenv'
+        }
+        stage('install'){
+            sh 'yarn install'
+        }
+        stage('build'){
+            sh 'yarn build'
+        }
     }
-    // stage('Checkout') {
-    //   checkout scm
-    // }
-    // stage('Environment') {
-    //   env.NODE_ENV = "prod"
-    //   sh 'git --version'
-    //   echo "Branch: ${env.BRANCH_NAME}"
-    //   //sh 'printenv'
-    // }
-    // stage('install'){
-    //   sh 'yarn install'
-    // }
-    // stage('build'){
-    //   sh 'yarn build'
-    // }
+    
   }
   catch (err) {
     throw err
