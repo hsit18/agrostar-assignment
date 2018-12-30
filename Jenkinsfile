@@ -27,9 +27,9 @@ node {
     stage('install'){
         sh 'yarn install'
     }
-    stage('test'){
-        sh 'yarn test'
-    }
+    // stage('test'){
+    //     sh 'yarn test'
+    // }
     stage('Environment') {
         env.NODE_ENV = params.ENVIROMENT;
         echo "NODE_ENV: ${env.NODE_ENV}"
