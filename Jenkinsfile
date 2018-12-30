@@ -3,7 +3,7 @@ node {
     properties(
         [parameters([
             string(defaultValue: '', description: '', name: 'custom_var', trim: false),
-            string(name: 'BRANCH', defaultValue: 'master', description: 'branch name'),
+            string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'branch name'),
             choice(name: 'ENVIROMENT', choices: ['production', 'development', 'test'], description: 'Enviroment')
         ])]
     )
@@ -19,7 +19,10 @@ node {
         
     }
     stage('Checkout') {
-        checkout scm
+        checkout([$class: 'GitSCM', branches: [[name: "*/${params.BRANCH}" ]],
+        userRemoteConfigs: [[url: 'https://gitlab.com/client-apps/agrostar-assignment.git']]])
+
+        //checkout scm
     }
     stage('Environment') {
         env.NODE_ENV = "prod"
