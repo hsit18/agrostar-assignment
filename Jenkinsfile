@@ -25,9 +25,9 @@ node {
         //checkout scm
     }
     stage('Environment') {
-        env.NODE_ENV = "prod"
+        env.NODE_ENV = params.ENVIROMENT;
         sh 'git --version'
-        echo "Branch: ${env.BRANCH_NAME}"
+        echo "NODE_ENV: ${env.NODE_ENV}"
         //sh 'printenv'
     }
     stage('install'){
